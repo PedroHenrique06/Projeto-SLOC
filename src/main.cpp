@@ -498,9 +498,9 @@ void show_info(std::vector<FileInfo> database, RunningOpt runOpt){
               << "\n--------------------------------------------------------------------------------------------------------------------------------\n";
   }
   std::cout << "Sum\t\t\t\t\t\t"
+              << comentario << "\t\t\t"
+              << branco  << "\t\t"
               << codigo << "\t\t\t"
-              << comentario << "\t\t"
-              << branco << "\t\t\t"
               << total << "\n";
 }
 
@@ -508,7 +508,8 @@ int main(int argc, char *argv[]){
   RunningOpt runop = parse_cmd_line(argc, argv);
   auto src_files = list_of_src_files(runop);
   auto database = count_lines(src_files);
-  show_info(database, runop);
-
+  if(!database.empty()){
+    show_info(database, runop);
+  }
   return EXIT_SUCCESS;
 }
