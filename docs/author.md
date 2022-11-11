@@ -22,6 +22,7 @@ Lista aqui os problemas encontrados (se houve algum) e as possíveis limitaçõe
 Caso o usuário indique incorretamente uma opção do tipo "-x" o programa apenas finaliza sem mensagem de erro.
 A tabela não possuí a formatação adequada.
 
+Imprime apenas uma das cinco mensagens de erro.
 
 # Grading
 
@@ -51,6 +52,8 @@ Preencha os itens que você implementou, indicando qual a nota esperada para cad
 
 Indique aqui como compilar e executar seu programa, caso você não esteja usando `cmake`.
 
-compilar: g++ -Wall -std=c++17 main.cpp conta_linha.cpp -o sloc (dentro da pasta src/)
-executar: ./sloc <arquivo/diretorio> [opções de ordenação]
+compilar cmake: mkdir build -- cd build -- cmake .. -- make (dentro da pasta src/)
 
+compilar no manualmente no terminal: g++ -Wall -std=c++17 main.cpp conta_linha.cpp -o sloc (dentro da pasta src/)
+
+executar: ./sloc <arquivo/diretorio> [opções de ordenação]
