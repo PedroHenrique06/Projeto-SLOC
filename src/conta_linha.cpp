@@ -1,6 +1,7 @@
 #include <iostream>
 #include "conta_linha.hpp"
 
+
 using std::string;
 
 //Testa se a string está vazia e retorna "true" ou "false".
