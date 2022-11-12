@@ -8,9 +8,10 @@ Esse projeto é um contador de linhas de arquivo. Ele suporta arquivos das lingu
 
 <!-- TODO -->
 
-Indique o nome do(s) autor(es) e email(s).
-Nome: Igor Rauan Soares Da Silva  Email: igorrauans18@gmail.com 
-Nome: Pedro Henrique Sales dos Santos  Email: pedrosales2806@gmail.com 
+Indique o nome do(s) autor(es) e email(s). <br/>
+
+Igor Rauan Soares Da Silva - igorrauans18@gmail.com <br/>
+Pedro Henrique Sales dos Santos - pedrosales2806@gmail.com
 
 
 # Problems found or limitations
