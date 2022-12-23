@@ -3,6 +3,7 @@
 
 #define uint unsigned int
 
+
 // == Enumerações
 
 // Essa enumeração lista todas as linguagens suportadas.
@@ -57,6 +58,11 @@ struct RunningOpt {
   bool ascending = false;         //!< Indica se está em ordem ascendente.
   bool descending = false;        //!< Indica se está em ordem descendente.
   order_possibility orderOpt = undef;
+};
+
+// Struct 
+struct LargestName{
+  long unsigned int largest = 0;
 };
 
 
