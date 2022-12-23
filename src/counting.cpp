@@ -4,6 +4,7 @@
 #include "counting.h"
 #include "treatment_of_data.h"
 
+LargestName name_of_file;
 
 // Função para realizar contagem e criar o banco de dados.
 std::vector<FileInfo> count_lines(std::vector<std::string> src_files){
@@ -31,6 +32,10 @@ FileInfo counting(std::string nome_arquivo){
     
     if(arquivo.is_open()){
       file.filename = nome_arquivo;
+
+      // Captura o nome do arquivo que tiver mais caracteres. 
+      if(file.filename.size() > name_of_file.largest) name_of_file.largest = file.filename.size();
+
       if(nome_arquivo.rfind(".cpp") != std::string::npos && (nome_arquivo.length() - nome_arquivo.rfind(".cpp")) == 4) file.type = CPP;
         else if(nome_arquivo.rfind(".c") != std::string::npos && (nome_arquivo.length() - nome_arquivo.rfind(".c")) == 2) file.type = C;
         else if(nome_arquivo.rfind(".hpp") != std::string::npos && (nome_arquivo.length() - nome_arquivo.rfind(".hpp")) == 4) file.type = HPP;
@@ -108,4 +113,14 @@ bool count_code(std::string l){
       a = true;
     }
     return a;
+}
+
+
+std::string spaces(){
+  std::string str;
+  for(int i{0}; i< int(name_of_file.largest); i++){
+    str.push_back(' ');
+  }
+
+  return str;
 }
