@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "print.h"
 #include "treatment_of_data.h"
+#include "counting.h"
 
 
 // Função para mostrar informações de como usar o Sloc.
@@ -79,33 +80,40 @@ void show_info(std::vector<FileInfo> database, RunningOpt runOpt){
       break;
     }
   }
-
+  
+  std::string num_of_spaces =  spaces();
+  
   if(database.size() != 0) std::cout << "Total de Aquivos: " << database.size() << "\n";
     int branco{0}, comentario{0}, codigo{0}, total{0};
     std::cout << "--------------------------------------------------------------------------------------------------------------------------------\n"
-    << "Filename\t\t Type\t\t Comment\t\t Blank\t\t Code\t\t All\n";
-    for(auto file : database){
-
-    float p1, p2, p3;
-
-    p1 = (file.n_loc*100)/file.n_lines;
-    p2 = (file.n_comments*100)/file.n_lines;
-    p3 = (file.n_blank*100)/file.n_lines;
-
-    branco += file.n_blank;
-    comentario += file.n_comments;
-    codigo += file.n_loc;
-    total += file.n_lines;
-
+              << "Filename" << num_of_spaces << "     "
+              <<  "Type        " 
+              << "Comment           "     
+              << "Blank           "
+              << "Code           "
+              << "All\n"
+              << "--------------------------------------------------------------------------------------------------------------------------------\n";
     
-    std::cout.precision(1);
-    std::cout<< file.filename << "\t\t"
-              << type_extenso(file.type) << "\t\t"
-              << file.n_comments <<  " (" << std::fixed << p2 << "%)" << "\t\t"
-              << file.n_blank << " (" << std::fixed << p3 << "%)" << "\t" 
-              << file.n_loc << " (" << std::fixed << p1 << "%)" << "\t" 
-              << file.n_lines
-              << "\n--------------------------------------------------------------------------------------------------------------------------------\n";
+    for(auto file : database){
+      float p1, p2, p3;
+
+      p1 = (file.n_loc*100)/file.n_lines;
+      p2 = (file.n_comments*100)/file.n_lines;
+      p3 = (file.n_blank*100)/file.n_lines;
+
+      branco += file.n_blank;
+      comentario += file.n_comments;
+      codigo += file.n_loc;
+      total += file.n_lines;
+
+      std::cout.precision(1);
+      std::cout<< file.filename << "           " 
+                << type_extenso(file.type) << "           "
+                << file.n_comments <<  "(" << std::fixed << p2 << "%)" << "           "
+                << file.n_blank << "(" << std::fixed << p3 << "%)" << "           " 
+                << file.n_loc << "(" << std::fixed << p1 << "%)" << "           " 
+                << file.n_lines
+                << "\n--------------------------------------------------------------------------------------------------------------------------------\n";
   }
   std::cout << "Sum\t\t\t\t\t\t"
               << codigo << "\t\t\t"
