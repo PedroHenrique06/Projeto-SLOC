@@ -10,6 +10,7 @@ bool count_blank(std::string);
 bool count_comment(std::string);
 bool count_comment(std::string, bool*, unsigned long*);
 bool count_code(std::string);
+std::string spaces();
 
 
 #endif
